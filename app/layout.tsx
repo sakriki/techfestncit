@@ -98,13 +98,8 @@ export default function RootLayout({
         <link rel="preload" href="/images/gafadi-logo.webp" as="image" />
         
         {/* DNS prefetch for external resources */}
-        <link rel="dns-prefetch" href="//static.hotjar.com" />
-        <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
-        <link rel="dns-prefetch" href="//www.google-analytics.com" />
         
         {/* Preconnect to external domains */}
-        <link rel="preconnect" href="https://static.hotjar.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
         
         {/* Additional SEO Meta Tags */}
         <meta name="author" content="Saksham Jaiswal" />
@@ -227,26 +222,6 @@ export default function RootLayout({
               ]
             })
           }}
-        />
-
-        {/* Hotjar Tracking Code for https://gafadichat.com */}
-        <Script id="hotjar-6457827" strategy="lazyOnload">
-          {`(function(h,o,t,j,a,r){
-              h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-              h._hjSettings={hjid:6457827,hjsv:6};
-              a=o.getElementsByTagName('head')[0];
-              r=o.createElement('script');r.async=1;
-              r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-              a.appendChild(r);
-          })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
-        </Script>
-
-        <meta name="google-adsense-account" content="ca-pub-9719198394780450" />
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9719198394780450"
-          crossOrigin="anonymous"
-          strategy="lazyOnload"
         />
         
       </head>

@@ -209,59 +209,7 @@ export function useFirebase() {
     }
   }, [user])
 
-  const setupDemoMode = () => {
-    console.log("Setting up demo mode...")
-    // Generate demo user
-    const demoUser = { uid: "demo-user-" + Math.random().toString(36).substring(2, 9) }
-    setUser(demoUser)
-
-    // Add welcome message
-    const welcomeMessage: Message = {
-      id: "welcome",
-      text: "Welcome to Gafadi Chat, Trinitians!\n\nThis is a test—chat with anonymous Trinitians. Your ID's hidden, so go wild! 😎\n\nHit Ctrl + Shift + R to refresh cache if it's glitchy.",
-      sender: "ADMIN SAKSHAM",
-      timestamp: Date.now(),
-      isAdmin: true,
-    }
-
-    // Create demo messages
-    const demoMessages: Message[] = [
-      {
-        id: "demo1",
-        text: "Hey everyone! How's it going? 👋",
-        sender: "demo-user-123",
-        timestamp: Date.now() - 300000,
-      },
-      {
-        id: "demo2",
-        text: "Just joined the chat. What's up Trinitians?",
-        sender: "demo-user-456",
-        timestamp: Date.now() - 120000,
-      },
-      {
-        id: "demo3",
-        text: "Hello! Is anyone here from ME1 XD?",
-        sender: "demo-user-789",
-        timestamp: Date.now() - 90000,
-      },
-      {
-        id: "demo4",
-        text: "I'm from ME1 XD! Nice to meet you all!",
-        sender: "demo-user-101",
-        timestamp: Date.now() - 60000,
-      },
-      {
-        id: "demo5",
-        text: "This chat is awesome! Hello everyone!",
-        sender: "demo-user-202",
-        timestamp: Date.now() - 30000,
-      },
-    ]
-
-    setMessages([welcomeMessage, ...demoMessages])
-    setActiveUsers(Math.floor(Math.random() * 10) + 1)
-    setTotalVisitors(Math.floor(Math.random() * 500) + 100)
-  }
+  // Remove setupDemoMode and all demo/test logic for public repository
 
   const updateUserPresence = async (uid: string) => {
     if (!uid) {
