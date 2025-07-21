@@ -1,0 +1,24 @@
+/* Force content visibility no matter what */
+.force-visible,
+.scroll-animate,
+.stagger-item,
+.scroll-fade-in,
+.scroll-scale-in,
+section {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Override any animation transforms that might be hiding content */
+.scroll-animate.visible,
+.stagger-item.visible,
+.scroll-fade-in.visible,
+.scroll-scale-in.visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}

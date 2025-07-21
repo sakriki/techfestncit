@@ -1,0 +1,943 @@
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.4), 0 0 20px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.6), 0 0 35px 10px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.4), 0 0 20px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes neonPulseGold {
+  0% {
+    box-shadow: 0 0 5px 0 rgba(255, 184, 0, 0.4), 0 0 20px 0 rgba(255, 184, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px 5px rgba(255, 184, 0, 0.6), 0 0 35px 10px rgba(255, 184, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 5px 0 rgba(255, 184, 0, 0.4), 0 0 20px 0 rgba(255, 184, 0, 0.2);
+  }
+}
+
+@keyframes neonPulseRed {
+  0% {
+    box-shadow: 0 0 5px 0 rgba(196, 30, 58, 0.4), 0 0 20px 0 rgba(196, 30, 58, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px 5px rgba(196, 30, 58, 0.6), 0 0 35px 10px rgba(196, 30, 58, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 5px 0 rgba(196, 30, 58, 0.4), 0 0 20px 0 rgba(196, 30, 58, 0.2);
+  }
+}
+
+.neon-button-gold:hover {
+  animation: neonPulseGold 2s infinite;
+}
+
+.neon-button-white:hover {
+  animation: neonPulse 2s infinite;
+}
+
+.neon-button-red:hover {
+  animation: neonPulseRed 2s infinite;
+}
+
+.neon-text-shadow {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.neon-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-border::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid white;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.neon-border:hover::before {
+  opacity: 0.5;
+  box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.7);
+}
+
+/* Enhanced transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Button hover effects */
+.chat-button {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.chat-button:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.chat-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Page transition effects */
+.page-transition-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Enhanced button effects */
+.neon-border::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.neon-border:hover::after {
+  left: 100%;
+}
+
+/* Floating particles for buttons */
+.neon-border .particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.neon-border .particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleAnimation 1s ease-in-out infinite;
+}
+
+@keyframes particleAnimation {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-20px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Enhanced corner accents */
+.neon-border .corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-color: white;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.neon-border:hover .corner {
+  opacity: 0.8;
+  animation: cornerPulse 2s infinite;
+}
+
+.neon-border .corner-tl {
+  top: 0;
+  left: 0;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.neon-border .corner-tr {
+  top: 0;
+  right: 0;
+  border-top: 2px solid;
+  border-right: 2px solid;
+}
+
+.neon-border .corner-bl {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+}
+
+.neon-border .corner-br {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+@keyframes cornerPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Hover state enhancements */
+.neon-border:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Button content animations */
+.neon-border:hover .icon-container {
+  transform: scale(1.1);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.neon-border:hover .title {
+  letter-spacing: 1px;
+  transition: letter-spacing 0.3s ease;
+}
+
+/* Scroll animations */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered animations */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stagger-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.stagger-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.stagger-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.stagger-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.stagger-item:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+/* Hover effects for chat buttons */
+.neon-button-gold,
+.neon-button-white,
+.neon-button-red {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.neon-button-gold::before,
+.neon-button-white::before,
+.neon-button-red::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.neon-button-gold:hover::before,
+.neon-button-white:hover::before,
+.neon-button-red:hover::before {
+  left: 100%;
+}
+
+/* Enhanced background effects */
+.cosmic-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(20, 0, 20, 0.4) 0%, rgba(0, 0, 0, 0.95) 100%);
+  z-index: -2;
+}
+
+.cosmic-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.cosmic-star {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #ffffff;
+  animation: twinkle 5s infinite ease-in-out;
+  z-index: -1;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Enhanced chat option buttons */
+.enhanced-chat-option {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.enhanced-chat-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgba(20, 0, 20, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Border effects */
+.enhanced-chat-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.2) 50%, transparent 60%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-position 0.3s ease;
+  background-size: 300% 300%;
+  background-position: 0% 0%;
+}
+
+.enhanced-chat-option:hover .enhanced-chat-border {
+  opacity: 1;
+  animation: borderMove 3s infinite alternate;
+}
+
+@keyframes borderMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.enhanced-chat-border.anonymous {
+  background: linear-gradient(135deg, transparent 40%, rgba(255, 184, 0, 0.5) 50%, transparent 60%);
+}
+
+.enhanced-chat-border.private {
+  background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.5) 50%, transparent 60%);
+}
+
+.enhanced-chat-border.voice {
+  background: linear-gradient(135deg, transparent 40%, rgba(196, 30, 58, 0.5) 50%, transparent 60%);
+}
+
+/* Icon container */
+.enhanced-chat-icon-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.enhanced-chat-option:hover .enhanced-chat-icon-container {
+  transform: scale(1.1);
+}
+
+.enhanced-chat-icon-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enhanced-chat-icon-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0.5;
+  filter: blur(10px);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.enhanced-chat-option:hover .enhanced-chat-icon-glow {
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+
+.enhanced-chat-icon-glow.anonymous {
+  background: radial-gradient(circle, rgba(255, 184, 0, 0.8), transparent 70%);
+}
+
+.enhanced-chat-icon-glow.private {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent 70%);
+}
+
+.enhanced-chat-icon-glow.voice {
+  background: radial-gradient(circle, rgba(196, 30, 58, 0.8), transparent 70%);
+}
+
+/* Hover effect */
+.enhanced-chat-hover-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.enhanced-chat-option:hover .enhanced-chat-hover-effect {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .enhanced-chat-option {
+    height: 160px;
+    padding: 0.5rem;
+  }
+
+  .enhanced-chat-icon-container {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.3rem;
+  }
+
+  .enhanced-chat-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .enhanced-chat-card p {
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .grid.gap-6.md\:gap-8 {
+    gap: 0.5rem;
+  }
+
+  /* Adjust container for better mobile fit */
+  .chat-options-container {
+    max-height: 100vh;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  /* Ensure buttons take full width but maintain aspect ratio */
+  .enhanced-chat-card {
+    padding: 1rem;
+  }
+}
+
+/* Additional breakpoint for very small screens */
+@media (max-height: 700px) {
+  .enhanced-chat-option {
+    height: 140px;
+  }
+
+  .enhanced-chat-icon-container {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 0.2rem;
+  }
+
+  .enhanced-chat-card h3 {
+    font-size: 1rem;
+  }
+
+  .enhanced-chat-card p {
+    font-size: 0.7rem;
+  }
+}
+
+/* Gradient shift animation for text */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Additional UI enhancements - general */
+/* Add subtle text shadow to button text for better contrast */
+.enhanced-chat-card h3,
+.enhanced-chat-card p {
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 184, 0, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 0 30px rgba(255, 184, 0, 0.1);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 184, 0, 0.5);
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.option {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease, border-color 0.2s ease;
+  flex: 0 0 calc(33.333% - 1rem);
+  min-width: 250px;
+  max-width: 350px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific background gradients */
+.anonymous .card {
+  background: linear-gradient(135deg, #5a3900 0%, #2c1c00 100%);
+}
+
+.private .card {
+  background: linear-gradient(135deg, #3a304f 0%, #1e182a 100%);
+}
+
+.voice .card {
+  background: linear-gradient(135deg, #7a001f 0%, #3d000f 100%);
+}
+
+/* Coming Soon Button Styles */
+.comingSoon .card {
+  background: linear-gradient(135deg, #555 0%, #333 100%);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.comingSoon .iconInner,
+.comingSoon .optionTitle,
+.comingSoon .description {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Disable hover effects for coming soon */
+.comingSoon:hover,
+.comingSoon:active {
+  transform: none;
+  box-shadow: none;
+  filter: none;
+  border-color: transparent;
+}
+
+.iconContainer {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconInner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Specific icon colors */
+.anonymous .iconInner {
+    color: #ffb800;
+}
+
+.private .iconInner {
+    color: #ffffff;
+}
+
+.voice .iconInner {
+    color: #c41e3a;
+}
+
+.optionTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  color: #fff;
+  text-align: center;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+/* Hover and touch effects */
+.option:not(.comingSoon):hover,
+.option:not(.comingSoon):active {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(255, 184, 0, 0.4);
+  filter: brightness(1.3);
+  border-color: rgba(255, 184, 0, 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .modal {
+    padding: 0.8rem;
+    max-height: 98vh;
+    justify-content: flex-start;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .options {
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0.3rem;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .option {
+     min-width: 280px;
+     max-width: 95%;
+     width: 95%;
+     flex-shrink: 0;
+     flex-grow: 1;
+     flex-basis: 0;
+     height: auto;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     padding: 0.4rem 0;
+  }
+
+  .card {
+    padding: 0.6rem;
+    flex-grow: 1;
+     justify-content: center;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .iconContainer {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.4rem;
+  }
+
+  .optionTitle {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
+}
+
+/* Additional adjustment for very small screens */
+@media (max-width: 480px) {
+    .modal {
+        padding: 0.5rem;
+        padding-top: 2.5rem;
+        padding-bottom: 1rem;
+    }
+    .options {
+        gap: 0.4rem;
+        padding: 0.2rem;
+    }
+    .option {
+        min-width: 250px;
+        max-width: 98%;
+        width: 98%;
+         padding: 0.3rem 0;
+    }
+    .card {
+        padding: 0.4rem;
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+    }
+    .iconContainer {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 0.3rem;
+    }
+    .optionTitle {
+        font-size: 1rem;
+    }
+    .description {
+        font-size: 0.7rem;
+    }
+     .modal {
+        padding: 0.8rem;
+    }
+}
+
+.developmentMessageContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 184, 0, 1);
+  color: #000;
+  padding: 1rem;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(255, 184, 0, 0.5);
+}
+
+.developmentMessageIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #000;
+  opacity: 0.8;
+}
+
+@keyframes hideDevelopmentMessageIndicator {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}

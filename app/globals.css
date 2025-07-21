@@ -1,0 +1,389 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 0, 10;
+  --background-end-rgb: 0, 0, 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  cursor: auto !important;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffb800;
+}
+
+/* Custom selection */
+::selection {
+  background: rgba(255, 184, 0, 0.3);
+  color: white;
+}
+
+/* Animation for gradient text */
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 8s ease infinite;
+}
+
+/* Force all content to be visible when coming back from chat selection */
+body.content-force-visible .scroll-animate,
+body.content-force-visible .stagger-item,
+body.content-force-visible .scroll-fade-in,
+body.content-force-visible .scroll-scale-in {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  transition: none !important;
+}
+
+body.content-force-visible section {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+
+/* Ensure hero content has enough vertical space */
+.hero-logo-container {
+  margin-top: 2rem;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Optimized animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Initial state for scroll-triggered animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile */
+  .scroll-animate {
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+  
+  /* Optimize gradient animations for mobile */
+  .animate-gradient {
+    animation-duration: 12s; /* Slower animation to reduce CPU usage */
+  }
+  
+  .animate-gradient-shift {
+    animation-duration: 15s; /* Slower gradient shift */
+  }
+  
+  .animate-gradient-shift.animate-slow {
+    animation-duration: 40s;
+  }
+  
+  .animate-gradient-shift.animate-medium {
+    animation-duration: 20s;
+  }
+  
+  .animate-gradient-shift.animate-fast {
+    animation-duration: 8s;
+  }
+  
+  /* Reduce glow effects on mobile for better performance */
+  .gafadi-logo-glow {
+    filter: drop-shadow(0 0 2px rgba(255, 184, 0, 0.3));
+  }
+  
+  .gafadi-logo-glow:hover {
+    filter: drop-shadow(0 0 4px rgba(255, 184, 0, 0.4));
+  }
+  
+  /* Optimize neon glow for mobile */
+  .neon-glow-creator {
+    box-shadow: 0 0 8px 1px rgba(255, 184, 0, 0.2), 0 0 20px 4px rgba(255, 96, 122, 0.1);
+    animation-duration: 6s; /* Slower animation */
+  }
+}
+
+/* Gradient shift animation for text */
+.animate-gradient-shift {
+  background: linear-gradient(90deg, #ffb800, #ffda44, #ff607a, #ffda44, #ffb800);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  animation: gradient-shift 10s linear infinite;
+}
+
+/* Different animation speeds */
+.animate-gradient-shift.animate-slow {
+  animation-duration: 30s;
+}
+
+.animate-gradient-shift.animate-medium {
+  animation-duration: 15s;
+}
+
+.animate-gradient-shift.animate-fast {
+  animation-duration: 5s;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Gafadi logo glow effect */
+.gafadi-logo-glow {
+  filter: drop-shadow(0 0 4px rgba(255, 184, 0, 0.4));
+}
+
+/* Enhanced logo glow on hover */
+.gafadi-logo-glow:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 184, 0, 0.6));
+  transition: filter 0.3s ease;
+}
+
+/* Scroll animation initial state */
+.scroll-animate,
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Scroll animation visible state */
+.scroll-animate.visible,
+.stagger-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Triangular clip path for logo */
+.clip-triangle {
+  clip-path: polygon(50% 5%, 0% 85%, 100% 85%);
+}
+
+.neon-glow-creator {
+  box-shadow: 0 0 12px 2px rgba(255, 184, 0, 0.25), 0 0 32px 8px rgba(255, 96, 122, 0.15);
+  background: linear-gradient(120deg, rgba(255,184,0,0.15), rgba(255,96,122,0.10), rgba(255,218,68,0.12), rgba(255,96,122,0.10));
+  background-size: 200% 200%;
+  animation: neon-glow-creator-anim 4s linear infinite;
+  border-radius: 0.75rem; /* rounded-xl */
+}
+
+@keyframes neon-glow-creator-anim {
+  0% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 12px 2px rgba(255, 184, 0, 0.25), 0 0 32px 8px rgba(255, 96, 122, 0.15);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 0 24px 4px rgba(255, 184, 0, 0.18), 0 0 48px 12px rgba(255, 96, 122, 0.10);
+  }
+  100% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 12px 2px rgba(255, 184, 0, 0.25), 0 0 32px 8px rgba(255, 96, 122, 0.15);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.7s cubic-bezier(0.4,0,0.2,1) both;
+}
+.delay-200 { animation-delay: 0.2s !important; }
+.delay-300 { animation-delay: 0.3s !important; }
+.delay-500 { animation-delay: 0.5s !important; }
+.delay-700 { animation-delay: 0.7s !important; }
+.delay-1000 { animation-delay: 1s !important; }
+
+/* Animated gradient background for hero section */
+.animated-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #0a000a 0%, #1a0a1a 40%, #ffb800 70%, #ff607a 100%);
+  background-size: 200% 200%;
+  animation: hero-gradient-move 10s ease-in-out infinite;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.hero-glow {
+  filter: drop-shadow(0 0 12px #ffb80099) drop-shadow(0 0 24px #ff607a44);
+}
+
+.hero-text-glow {
+  text-shadow: 
+    0 0 4px #fff, /* Sharp white core */
+    0 0 10px #fff,
+    0 0 20px #ffb800, /* Larger gold glow */
+    0 0 40px #ffb800,
+    2px 2px 4px #000; /* Subtle black shadow for depth */
+}
+
+.hero-btn-glow {
+  box-shadow: 0 0 16px 4px #ffb80066, 0 0 32px 8px #ff607a33, 0 2px 8px #0006, 0 0 1px #0006;
+}
+
+@keyframes hero-gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating orbs for hero section */
+.floating-orb {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.5;
+  filter: blur(2px);
+  pointer-events: none;
+  animation: orb-float 8s ease-in-out infinite alternate;
+}
+.floating-orb.gold {
+  background: radial-gradient(circle, #ffb800 0%, #ffb80033 80%, transparent 100%);
+}
+.floating-orb.red {
+  background: radial-gradient(circle, #ff607a 0%, #ff607a33 80%, transparent 100%);
+}
+.floating-orb.purple {
+  background: radial-gradient(circle, #a259ff 0%, #a259ff33 80%, transparent 100%);
+}
+@keyframes orb-float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.1); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Parallax layers for hero section */
+.parallax-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pop-shadow {
+  text-shadow: 0 2px 16px #000, 0 0 2px #000, 0 0 1px #000;
+}
+
+.button-backdrop {
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 16px #000a, 0 0 2px #000a;
+}
+
+.hero-content-backdrop {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 700px;
+  height: 80vh;
+  max-height: 500px;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 2rem;
+  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, transparent 100%);
+  filter: blur(8px);
+}
+
+.pop-black-shadow {
+  text-shadow: 0 2px 16px #000, 0 0 2px #000, 0 0 1px #000;
+}
+
+.scroll-arrow-glow {
+  filter: drop-shadow(0 0 4px #ffb800cc);
+}
+
+.super-bold {
+  font-weight: 900 !important;
+}
+
+@font-face {
+  font-family: 'Komika Axis';
+  src: url('/fonts/KOMIKAX_.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  font-preload: true;
+}
+
+.font-komika {
+  font-family: 'Komika Axis', sans-serif;
+}
+
+.creator-image-glow {
+  box-shadow: 0 0 15px 5px rgba(255, 184, 0, 0.4), 0 0 30px 10px rgba(255, 96, 122, 0.3);
+}
+
+@keyframes gradient-outline-spin {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.gradient-outline-animated {
+  background-size: 200% auto;
+  animation: gradient-outline-spin 3s linear infinite;
+}
