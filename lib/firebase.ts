@@ -6,13 +6,14 @@ import { getAuth } from "firebase/auth"
 import { getStorage } from "firebase/storage"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCzGc4r-zVVxnRPd_04h-IBiUnDGUr-1s8",
-  authDomain: "gafadi-saksham.firebaseapp.com",
-  projectId: "gafadi-saksham",
-  storageBucket: "gafadi-saksham.firebasestorage.app",
-  messagingSenderId: "310831924857",
-  appId: "1:310831924857:web:23ed09f770ff7e374f36a8",
-  measurementId: "G-16P1RVHPQH",
+//here the firebase keys are stored but i have removed them for security reasons for submitting. I will add them in my local environment.you can see the functional website here : www.gafadichat.com 
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 }
 
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0]
