@@ -66,10 +66,5 @@ Gafadi Chat is a next-generation, privacy-focused chat platform designed for col
 3. Submit a pull request with a clear description of your changes.
 4. For major features or bug fixes, please open an issue first to discuss.
 
-## License
-
-This project is licensed under the MIT License.
-
----
 
 **Gafadi Chat** – Connect. Share. Grow. Anonymously and securely. 
