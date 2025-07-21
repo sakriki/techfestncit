@@ -1,3 +1,5 @@
+#THIS MAY NOT WORK PERFECTLY LOCALLY BECAUSE I HAVE REMOVED ALL THE SENSITIVE API KEYS AND CODES. FOR THE FULL WORKING VERSION, PLEASE VISIT : www.gafadichat.com
+
 # Gafadi Chat
 
 Gafadi Chat is a next-generation, privacy-focused chat platform designed for college students. It enables secure, anonymous text and voice communication, making campus life more vibrant and inclusive.
