@@ -451,6 +451,10 @@
   background: linear-gradient(135deg, transparent 40%, rgba(196, 30, 58, 0.5) 50%, transparent 60%);
 }
 
+.enhanced-chat-border.notes {
+  background: linear-gradient(135deg, transparent 40%, rgba(62, 203, 255, 0.5) 50%, transparent 60%);
+}
+
 /* Icon container */
 .enhanced-chat-icon-container {
   position: relative;
@@ -505,6 +509,10 @@
 
 .enhanced-chat-icon-glow.voice {
   background: radial-gradient(circle, rgba(196, 30, 58, 0.8), transparent 70%);
+}
+
+.enhanced-chat-icon-glow.notes {
+  background: radial-gradient(circle, rgba(62, 203, 255, 0.8), transparent 70%);
 }
 
 /* Hover effect */
@@ -733,6 +741,10 @@
   background: linear-gradient(135deg, #7a001f 0%, #3d000f 100%);
 }
 
+.notes .card {
+  background: linear-gradient(135deg, #3ecbff 0%, #1a6fa1 100%);
+}
+
 /* Coming Soon Button Styles */
 .comingSoon .card {
   background: linear-gradient(135deg, #555 0%, #333 100%);
@@ -781,6 +793,10 @@
 
 .voice .iconInner {
     color: #c41e3a;
+}
+
+.notes .iconInner {
+  color: #3ecbff;
 }
 
 .optionTitle {

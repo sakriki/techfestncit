@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './chat-selection.module.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef, useCallback } from "react"
-import { VenetianMaskIcon as Mask, Lock, Headphones, X } from "lucide-react"
+import { VenetianMaskIcon as Mask, Lock, Headphones, X, Book } from "lucide-react"
 import Image from "next/image"
 import GalaxyStarfield from "@/components/galaxy-starfield"
 import { RocketIcon } from 'lucide-react';
@@ -127,16 +127,21 @@ const ChatSelection: React.FC<ChatSelectionProps> = ({ onClose }) => {
       title: "Voice Chat",
       description: "Talk in real-time with others",
       icon: <Headphones className="w-12 h-12" />,
-      // isComingSoon: true, // Remove this line to enable the button
     },
     {
-        id: "comingSoon",
-        title: "COMING SOON...",
-        description: "Exciting new features are on the way!",
-        icon: <RocketIcon className="w-12 h-12" />,
-        isComingSoon: true,
-    }
-  ]
+      id: "notes",
+      title: "Notes/Exercise",
+      description: "Access notes and exercises by stream and class",
+      icon: <Book className="w-12 h-12" />,
+    },
+    {
+      id: "comingSoon",
+      title: "COMING SOON...",
+      description: "Exciting new features are on the way!",
+      icon: <RocketIcon className="w-12 h-12" />,
+      isComingSoon: true,
+    },
+  ];
 
   const handleChatSelect = (optionId: string, isComingSoon: boolean) => {
     if (isComingSoon) {
@@ -150,8 +155,11 @@ const ChatSelection: React.FC<ChatSelectionProps> = ({ onClose }) => {
       }
     } else { // Proceed only if not a coming soon button
         onClose();
-        // Use Next.js router for navigation
-        router.push(`/${optionId}`);
+        if(optionId === "notes") {
+          router.push("/notes");
+        } else {
+          router.push(`/${optionId}`);
+        }
     }
   }
 
