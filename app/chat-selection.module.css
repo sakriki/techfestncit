@@ -710,6 +710,12 @@
   text-align: center;
 }
 
+.option.assignments {
+  background: #32cd32;
+  border: 2px solid #228b22;
+  color: #ffffff;
+}
+
 .card {
   position: relative;
   padding: 1.5rem;
@@ -743,6 +749,12 @@
 
 .notes .card {
   background: linear-gradient(135deg, #3ecbff 0%, #1a6fa1 100%);
+}
+
+.assignments .card {
+  background: #32cd32;
+  backdrop-filter: none;
+  box-shadow: none;
 }
 
 /* Coming Soon Button Styles */
@@ -797,6 +809,10 @@
 
 .notes .iconInner {
   color: #3ecbff;
+}
+
+.assignments .iconInner {
+  color: #ffffff;
 }
 
 .optionTitle {
